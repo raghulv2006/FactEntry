@@ -1,0 +1,224 @@
+/* Global CSS Variables & Theme Support */
+:root {
+  --bg-default: #121824;
+  --bg-paper: #1B2232;
+  --bg-sidebar: #151B2A;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(0, 229, 195, 0.2);
+  --glass-panel-bg: rgba(27, 34, 50, 0.7);
+  --glass-panel-heavy-bg: rgba(21, 27, 42, 0.85);
+  --grid-line-color: rgba(255, 255, 255, 0.02);
+  --sidebar-active-bg: linear-gradient(90deg, rgba(0, 229, 195, 0.06) 0%, transparent 100%);
+  --glow-badge-closed-bg: rgba(148, 163, 184, 0.08);
+  --glow-badge-closed-border: rgba(148, 163, 184, 0.2);
+  --glow-badge-closed-text: #94A3B8;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+  --scrollbar-track: #121824;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --card-hover-shadow: 0 8px 30px rgba(0, 229, 195, 0.08);
+}
+
+body.light-theme {
+  --bg-default: #F1F5F9;
+  --bg-paper: #F8FAFC;
+  --bg-sidebar: #fefeff;
+  /* Keep sidebar dark for that premium corporate workstation look */
+  --text-primary: #334155;
+  --text-secondary: #64748B;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-hover: rgba(0, 229, 195, 0.35);
+  --glass-panel-bg: rgba(248, 250, 252, 0.75);
+  --glass-panel-heavy-bg: rgba(241, 245, 249, 0.9);
+  --grid-line-color: rgba(0, 0, 0, 0.03);
+  --sidebar-active-bg: linear-gradient(90deg, rgba(0, 229, 195, 0.06) 0%, transparent 100%);
+  --glow-badge-closed-bg: rgba(100, 116, 139, 0.08);
+  --glow-badge-closed-border: rgba(100, 116, 139, 0.2);
+  --glow-badge-closed-text: #64748B;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-track: #F1F5F9;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --card-hover-shadow: 0 8px 30px rgba(45, 31, 102, 0.06);
+}
+
+/* Global CSS Reset and Styling */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--bg-default);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Smooth transitions for interactive elements */
+.glass-panel,
+.MuiCard-root,
+.MuiPaper-root,
+.MuiButton-root,
+.MuiTableCell-root,
+input,
+select,
+textarea {
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Custom Premium Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5C3;
+  box-shadow: 0 0 10px #00E5C3;
+}
+
+/* Glassmorphism Panel Utilities */
+.glass-panel {
+  background: var(--glass-panel-bg) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color) !important;
+}
+
+.glass-panel-heavy {
+  background: var(--glass-panel-heavy-bg) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Custom Neon Status Glow Badges */
+.glow-badge-open {
+  background: rgba(57, 167, 255, 0.08) !important;
+  border: 1px solid rgba(57, 167, 255, 0.35) !important;
+  color: #39A7FF !important;
+  box-shadow: 0 0 8px rgba(57, 167, 255, 0.15);
+  font-weight: 700 !important;
+}
+
+.glow-badge-in-progress {
+  background: rgba(255, 176, 32, 0.08) !important;
+  border: 1px solid rgba(255, 176, 32, 0.35) !important;
+  color: #FFB020 !important;
+  box-shadow: 0 0 8px rgba(255, 176, 32, 0.15);
+  font-weight: 700 !important;
+}
+
+.glow-badge-resolved {
+  background: rgba(0, 208, 132, 0.08) !important;
+  border: 1px solid rgba(0, 208, 132, 0.35) !important;
+  color: #00D084 !important;
+  box-shadow: 0 0 8px rgba(0, 208, 132, 0.15);
+  font-weight: 700 !important;
+}
+
+.glow-badge-closed {
+  background: var(--glow-badge-closed-bg) !important;
+  border: 1px solid var(--glow-badge-closed-border) !important;
+  color: var(--glow-badge-closed-text) !important;
+  font-weight: 700 !important;
+}
+
+.glow-badge-critical {
+  background: rgba(255, 77, 109, 0.08) !important;
+  border: 1px solid rgba(255, 77, 109, 0.45) !important;
+  color: #FF4D6D !important;
+  box-shadow: 0 0 10px rgba(255, 77, 109, 0.25);
+  font-weight: 700 !important;
+  animation: pulse-red-glow 2.5s infinite ease-in-out;
+}
+
+/* Animations Keyframes */
+@keyframes pulse-red-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 4px rgba(255, 77, 109, 0.2);
+    border-color: rgba(255, 77, 109, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+    border-color: rgba(255, 77, 109, 0.8);
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+/* Animated Grid Background */
+.animated-grid-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Pulse Cyan Outline on Active elements */
+.glowing-active-sidebar {
+  border-left: 3px solid #00E5C3 !important;
+  background: var(--sidebar-active-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+.glowing-active-sidebar svg {
+  color: #00E5C3 !important;
+  filter: drop-shadow(0 0 4px rgba(0, 229, 195, 0.5));
+}
+
+/* Button & Card glow details */
+.glow-btn-cyan {
+  background-color: #00E5C3 !important;
+  color: #070B14 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 10px rgba(0, 229, 195, 0.2) !important;
+}
+
+.glow-btn-cyan:hover {
+  background-color: #33EBD2 !important;
+  box-shadow: 0 0 18px rgba(0, 229, 195, 0.45) !important;
+}
